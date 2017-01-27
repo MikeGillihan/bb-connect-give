@@ -20,7 +20,7 @@ Yes. It works with all versions of Beaver Builder!
 
 **Where can I get support?**
 
-* https://wordpress.org/support/plugin/beaver-builder-bridge-give-donations/
+* Here or https://wordpress.org/support/plugin/beaver-builder-bridge-give-donations/
 
 #### Changelog
 
