@@ -1,9 +1,9 @@
 === Beaver Builder Bridge: Give Donations ===
 Contributors: mikegillihan, purposewp
-Tags: beaver builder, give, donations, forms
+Tags: beaver builder, give, donations, nonprofits, fundraising
 Requires at least: 4.4
 Tested up to: 4.7.2
-Stable tag: trunk
+Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.me/purposewp
