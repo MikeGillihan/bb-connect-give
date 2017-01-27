@@ -46,6 +46,17 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 		public static $errors;
 
 		/**
+		 * @var array Beaver Builder Lite slug
+		 */
+		public static $bb_lite;
+
+		/**
+		 * @var array Beaver Builder Pro slug
+		 */
+		public static $bb_pro;
+
+
+		/**
 		 * Main BBB_GiveWP Instance.
 		 *
 		 * Insures that only one instance of BBB_GiveWP exists in memory at any one
@@ -66,6 +77,8 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 
 				self::$instance = new BBB_GiveWP;
 				self::$errors   = array();
+				self::$bb_lite  = 'beaver-builder-lite-version/fl-builder.php';
+				self::$bb_pro   = 'bb-plugin/fl-builder.php';
 
 				self::$instance->define_constants();
 				self::$instance->init();
@@ -168,16 +181,10 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 		 * @return void
 		 */
 		public function load_modules() {
-
-			if ( ! function_exists( 'is_plugin_active' ) ) {
-				include_once ABSPATH . 'wp-admin/includes/plugin.php';
-			}
-
-			$bb_lite = 'beaver-builder-lite-version/fl-builder.php';
-
 			// Modules
-			if ( class_exists( 'FLBuilder' ) || is_plugin_active( $bb_lite ) ) {
-				include_once BBB_GIVE_DIR . 'modules/bbb-donation-forms/bbb-donation-forms.php';
+			if ( class_exists( 'FLBuilder' ) ) {
+				include_once BBB_GIVE_DIR . 'modules/bbb-give-forms/bbb-give-forms.php';
+				include_once BBB_GIVE_DIR . 'modules/bbb-give-goal/bbb-give-goal.php';
 			}
 		}
 
@@ -210,6 +217,17 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
                     </p>
                 </div>
 				<?php
+			} else if ( is_plugin_active( self::$bb_lite ) && is_plugin_active( self::$bb_pro ) ) {
+				echo 'BEAVER ALERT!';
+				?>
+                <div class="notice notice-error">
+                    <p>
+						<?php
+						$bbb_give = '<a href="https://wordpress.org/plugins/beaver-builder-bridge-give-donations/" target="_blank">Beaver Builder Bridge</a>';
+						echo sprintf( esc_html__( '%s requires only one activated version of Beaver Builder.', 'bbb-give' ), $bbb_give ); ?>
+                    </p>
+                </div>
+				<?php
 			} else if ( ! class_exists( 'FLBuilder' ) ) {
 				?>
                 <div class="notice notice-error">
@@ -236,7 +254,8 @@ endif;
 /**
  * The main function that returns BBB_GiveWP
  *
- * The main function responsible for returning the one true BBB_GiveWP instance to functions everywhere. Use this function like you would a global variable, except without needing to declare the global.
+ * The main function responsible for returning the one true BBB_GiveWP instance to functions everywhere. Use this
+ * function like you would a global variable, except without needing to declare the global.
  *
  * Example: <?php $give = BBB_Give(); ?>
  *

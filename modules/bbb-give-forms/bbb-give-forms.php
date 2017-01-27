@@ -3,9 +3,9 @@
 /**
  * This is the basic Give Donation Form module.
  *
- * @class BBB_Donation_Forms
+ * @class BBB_Give_Forms
  */
-class BBB_Donation_Forms extends FLBuilderModule {
+class BBB_Give_Forms extends FLBuilderModule {
 
 	/**
 	 * Constructor function for the module.
@@ -15,10 +15,10 @@ class BBB_Donation_Forms extends FLBuilderModule {
 	public function __construct() {
 		parent::__construct( array(
 			'name'          => __( 'Donation Form', 'bbb-give' ),
-			'description'   => __( 'An basic example for coding new modules.', 'bbb-give' ),
+			'description'   => __( 'Add your Give Donation Form Goal to your page.', 'bbb-give' ),
 			'category'      => __( 'Give Modules', 'bbb-give' ),
-			'dir'           => BBB_GIVE_DIR . 'modules/bbb-donation-forms/',
-			'url'           => BBB_GIVE_DIR . 'modules/bbb-donation-forms/',
+			'dir'           => BBB_GIVE_DIR . 'modules/bbb-give-forms/',
+			'url'           => BBB_GIVE_DIR . 'modules/bbb-give-forms/',
 			'editor_export' => true, // Defaults to true and can be omitted.
 			'enabled'       => true, // Defaults to true and can be omitted.
 		) );
@@ -48,7 +48,7 @@ class BBB_Donation_Forms extends FLBuilderModule {
 /**
  * Register the module and its form settings.
  */
-FLBuilder::register_module( 'BBB_Donation_Forms', array(
+FLBuilder::register_module( 'BBB_Give_Forms', array(
 	'form' => array( // Tab
 		'title'    => __( 'General', 'bbb-give' ), // Tab title
 		'sections' => array( // Tab Sections
@@ -59,7 +59,7 @@ FLBuilder::register_module( 'BBB_Donation_Forms', array(
 						'type'    => 'select',
 						'label'   => __( 'Select Form', 'bbb-give' ),
 						'default' => '',
-						'options' => BBB_Donation_Forms::list_forms()
+						'options' => BBB_Give_Forms::list_forms()
 					),
 					'show_title'        => array(
 						'type'    => 'select',
