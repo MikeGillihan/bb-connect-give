@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Beaver Builder Bridge: Give Donations
- * Plugin URI: https://purposewp.com/
+ * Plugin URI: https://wordpress.org/plugins/beaver-builder-bridge-give-donations/
  * Description: Easily add your Give donation forms to any Beaver Builder page or post.
  * Version: 0.1.0
  * Author: PurposeWP
