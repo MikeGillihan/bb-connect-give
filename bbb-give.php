@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Beaver Builder Bridge: Give Donations
- * Plugin URI: https://purposewp.com/beaver-builder-bridge-givewp
+ * Plugin URI: https://purposewp.com/
  * Description: Easily add your Give donation forms to any Beaver Builder page or post.
  * Version: 0.1.0
  * Author: PurposeWP
@@ -34,8 +34,6 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 	 * @since 0.1.0
 	 */
 	final class BBB_GiveWP {
-		/** Singleton **/
-
 		/**
 		 * @var BBB_GiveWP The one true BBB_GiveWP
 		 * @since 0.1.0
@@ -47,10 +45,6 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 		 */
 		public static $errors;
 
-//		public function __construct() {
-//			add_action( 'plugins_loaded', array( $this, 'plugins_check' ) );
-//		}
-
 		/**
 		 * Main BBB_GiveWP Instance.
 		 *
@@ -61,23 +55,19 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 		 * @static
 		 * @staticvar array $instance
 		 * @uses      BBB_GiveWP::define_constants() Setup the constants needed.
-		 * @uses      BBB_GiveWP::includes() Include the required files.
+		 * @uses      BBB_GiveWP::load_modules() Include the required files.
 		 * @uses      BBB_GiveWP::load_textdomain() load the language files.
 		 * @see       BBB_GiveWP()
 		 * @return object|BBB_GiveWP The one true BBB_GiveWP
 		 */
-		public static function instance() {
+		public function instance() {
 
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof BBB_GiveWP ) ) {
 
 				self::$instance = new BBB_GiveWP;
 				self::$errors   = array();
 
-				add_action( 'plugins_loaded', array( self::$instance, 'plugins_check' ) );
-
 				self::$instance->define_constants();
-//				self::$instance->includes();
-				self::$instance->load_textdomain();
 				self::$instance->init();
 			}
 
@@ -85,27 +75,30 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 		}
 
 		/**
-		 * Check if required plugins are activated
+		 * Throw error on object clone.
+		 *
+		 * The whole idea of the singleton design pattern is that there is a single
+		 * object therefore, we don't want the object to be cloned.
+		 *
+		 * @since  0.1.0
+		 * @access protected
+		 * @return void
 		 */
-		public function plugins_check() {
-			include_once ABSPATH . 'wp-admin/includes/plugin.php';
+		public function __clone() {
+			// Cloning instances of the class is forbidden.
+			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'bbb-give' ), '0.1.0' );
+		}
 
-			// Plugins exist.
-			if ( class_exists( 'FLBuilder' ) && class_exists( 'Give' ) ) {
-				return;
-			}
-
-			if ( is_admin() && current_user_can( 'activate_plugins' ) ) {
-				add_action( 'admin_notices', array( self::$instance, 'admin_notices' ) );
-				add_action( 'network_admin_notices', array( self::$instance, 'admin_notices' ) );
-
-				$plugin = plugin_basename( __FILE__ );
-				deactivate_plugins( $plugin, true );
-
-				if ( isset( $_GET['activate'] ) ) {
-					unset( $_GET['activate'] );
-				}
-			}
+		/**
+		 * Disable de-serializing of the class.
+		 *
+		 * @since  0.1.0
+		 * @access protected
+		 * @return void
+		 */
+		public function __wakeup() {
+			// de-serializing instances of the class is forbidden.
+			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'bbb-give' ), '0.1.0' );
 		}
 
 		/**
@@ -134,13 +127,47 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 		}
 
 		/**
+		 * Initiate the plugins functions
+		 */
+		public function init() {
+			add_action( 'plugins_loaded', array( $this, 'plugins_check' ) );
+			add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
+			add_action( 'init', array( $this, 'load_modules' ) );
+		}
+
+		/**
+		 * Check if required plugins are activated
+		 */
+		public function plugins_check() {
+			include_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+			// Exit early if required plugins are active.
+			if ( class_exists( 'FLBuilder' ) && class_exists( 'Give' ) ) {
+				return;
+			}
+
+			// Display notice and deactivate plugin
+			if ( is_admin() && current_user_can( 'activate_plugins' ) ) {
+				add_action( 'admin_notices', array( self::$instance, 'admin_notices' ) );
+				add_action( 'network_admin_notices', array( self::$instance, 'admin_notices' ) );
+
+				$plugin = plugin_basename( __FILE__ );
+				deactivate_plugins( $plugin, true );
+
+				if ( isset( $_GET['activate'] ) ) {
+					unset( $_GET['activate'] );
+				}
+			}
+		}
+
+		/**
 		 * Include required files.
 		 *
 		 * @access private
 		 * @since  0.1.0
 		 * @return void
 		 */
-		public static function includes() {
+		public function load_modules() {
 
 			if ( ! function_exists( 'is_plugin_active' ) ) {
 				include_once ABSPATH . 'wp-admin/includes/plugin.php';
@@ -163,10 +190,6 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 		 */
 		public function load_textdomain() {
 			load_plugin_textdomain( 'bbb-give', false, basename( dirname( __FILE__ ) ) . '/languages/' );
-		}
-
-		public static function init() {
-			add_action( 'init', array( self::$instance, 'includes' ) );
 		}
 
 		/**
@@ -207,41 +230,13 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 				}
 			}
 		}
-
-		/**
-		 * Throw error on object clone.
-		 *
-		 * The whole idea of the singleton design pattern is that there is a single
-		 * object therefore, we don't want the object to be cloned.
-		 *
-		 * @since  0.1.0
-		 * @access protected
-		 * @return void
-		 */
-		public function __clone() {
-			// Cloning instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'bbb-give' ), '0.1.0' );
-		}
-
-		/**
-		 * Disable de-serializing of the class.
-		 *
-		 * @since  0.1.0
-		 * @access protected
-		 * @return void
-		 */
-		public function __wakeup() {
-			// de-serializing instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'bbb-give' ), '0.1.0' );
-		}
 	}
 endif;
 
 /**
  * The main function that returns BBB_GiveWP
  *
- * The main function responsible for returning the one true BBB_GiveWP instance to functions everywhere. Use this
- * function like you would a global variable, except without needing to declare the global.
+ * The main function responsible for returning the one true BBB_GiveWP instance to functions everywhere. Use this function like you would a global variable, except without needing to declare the global.
  *
  * Example: <?php $give = BBB_Give(); ?>
  *
