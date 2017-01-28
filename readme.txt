@@ -1,4 +1,4 @@
-=== Beaver Builder Bridge: Give Donations ===
+=== BB Connect for Give Donations ===
 Contributors: mikegillihan, purposewp
 Tags: beaver builder, give, donations, nonprofits, fundraising
 Requires at least: 4.4
@@ -12,9 +12,9 @@ Easily add your Give donation form to any Beaver Builder enabled page.
 
 == Description ==
 
-Beaver Builder Bridge: Give Donations makes it easy to add your Give donation form to any Beaver Builder enabled page.
+BB Connect for Give Donations makes it easy to add your Give donation form to any Beaver Builder enabled page.
 
-Adds Donation Form and Donation Form Goal modules to Beaver Builder. Configure your donation form using the Give plugin and add it to your Beaver Builder enabled page or post.
+Adds Donation Form and Donation Form Goal modules to the Beaver Builder page builder. Configure your donation form using the Give plugin and add it to your Beaver Builder enabled page or post.
 
 == Screenshots ==
 
@@ -27,6 +27,7 @@ Adds Donation Form and Donation Form Goal modules to Beaver Builder. Configure y
 * Download and install using the built in WordPress plugin installer.
 * Activate in the "Plugins" area of your admin by clicking the "Activate" link.
 * No further setup or configuration is necessary.
+* The modules can be found in the Beaver Builder Page Builder under "Give Modules".
 
 == Frequently Asked Questions ==
 
@@ -36,7 +37,9 @@ Yes. It works with all versions of Beaver Builder!
 
 = Where can I get support? =
 
-* Basic: https://wordpress.org/support/plugin/beaver-builder-bridge-give-donations/
+We have made BB Connect for Give Donations as straightforward to use as possible, but if you still have questions we will do our best to help out.
+
+* Basic Support: https://wordpress.org/support/plugin/bb-connect-give-donations/
 
 == Changelog ==
 
