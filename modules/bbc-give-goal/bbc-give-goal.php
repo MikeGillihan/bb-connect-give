@@ -3,9 +3,9 @@
 /**
  * This is the basic Give Donation Form module.
  *
- * @class BBB_Give_Goal
+ * @class BBC_Give_Goal
  */
-class BBB_Give_Goal extends FLBuilderModule {
+class BBC_Give_Goal extends FLBuilderModule {
 
 	/**
 	 * Constructor function for the module.
@@ -14,11 +14,11 @@ class BBB_Give_Goal extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct( array(
-			'name'          => __( 'Donation Form Goal', 'bbb-give' ),
-			'description'   => __( 'Add your Give Donation Form Goal to your page.', 'bbb-give' ),
-			'category'      => __( 'Give Modules', 'bbb-give' ),
-			'dir'           => BBB_GIVE_DIR . 'modules/bbb-give-goal/',
-			'url'           => BBB_GIVE_DIR . 'modules/bbb-give-goal/',
+			'name'          => __( 'Donation Form Goal', 'bbc-give' ),
+			'description'   => __( 'Add your Give Donation Form Goal to your page.', 'bbc-give' ),
+			'category'      => __( 'Give Modules', 'bbc-give' ),
+			'dir'           => BBC_GIVE_DIR . 'modules/bbc-give-goal/',
+			'url'           => BBC_GIVE_DIR . 'modules/bbc-give-goal/',
 			'editor_export' => true, // Defaults to true and can be omitted.
 			'enabled'       => true, // Defaults to true and can be omitted.
 		) );
@@ -30,7 +30,7 @@ class BBB_Give_Goal extends FLBuilderModule {
 	 * @return array List of GiveWP forms
 	 */
 	public static function list_forms() {
-		$list = array( '' => __( 'None', 'bbb-give' ) );
+		$list = array( '' => __( 'None', 'bbc-give' ) );
 
 		$forms = get_posts( array(
 			'post_type'      => 'give_forms',
@@ -48,22 +48,22 @@ class BBB_Give_Goal extends FLBuilderModule {
 /**
  * Register the module and its form settings.
  */
-FLBuilder::register_module( 'BBB_Give_Goal', array(
+FLBuilder::register_module( 'BBC_Give_Goal', array(
 	'form' => array( // Tab
-		'title'    => __( 'General', 'bbb-give' ), // Tab title
+		'title'    => __( 'General', 'bbc-give' ), // Tab title
 		'sections' => array( // Tab Sections
 			'select_form' => array( // Section
 				'title'  => '', // Section Title
 				'fields' => array( // Section Fields
 					'select_form_field' => array(
 						'type'    => 'select',
-						'label'   => __( 'Select Form', 'bbb-give' ),
+						'label'   => __( 'Select Form', 'bbc-give' ),
 						'default' => '',
-						'options' => BBB_Give_Goal::list_forms()
+						'options' => BBC_Give_Goal::list_forms()
 					),
 					'show_text'        => array(
 						'type'    => 'select',
-						'label'   => __( 'Show Text', 'bbb-give' ),
+						'label'   => __( 'Show Text', 'bbc-give' ),
 						'default' => 'true',
 						'options' => array(
 							'true'  => 'Show',
@@ -72,7 +72,7 @@ FLBuilder::register_module( 'BBB_Give_Goal', array(
 					),
 					'show_bar'         => array(
 						'type'    => 'select',
-						'label'   => __( 'Show Progress Bar', 'bbb-give' ),
+						'label'   => __( 'Show Progress Bar', 'bbc-give' ),
 						'default' => 'true',
 						'options' => array(
 							'true'  => 'Show',

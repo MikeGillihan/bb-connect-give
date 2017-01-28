@@ -1,15 +1,15 @@
 <?php
 /**
- * Plugin Name: Beaver Builder Bridge: Give Donations
- * Plugin URI: https://wordpress.org/plugins/beaver-builder-bridge-give-donations/
- * Description: Easily add your Give donation forms to any Beaver Builder page or post.
+ * Plugin Name: BB Connect for Give Donations
+ * Plugin URI: https://wordpress.org/plugins/bb-connect-give-donations/
+ * Description: Easily integrate Give Donations with Beaver Builder.
  * Version: 0.1.0
  * Author: PurposeWP
  * Author URI: https://purposewp.com
  * Copyright: (c) 2017 PurposeWP, LLC
  * License: GNU General Public License v2.0
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: bbb-give
+ * Text Domain: bbc-give
  * Domain Path: /languages
  */
 
@@ -27,15 +27,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'BBB_GiveWP' ) ) :
+if ( ! class_exists( 'BBC_GiveWP' ) ) :
 	/**
-	 * Main BBB_GiveWP Class.
+	 * Main BBC_GiveWP Class.
 	 *
 	 * @since 0.1.0
 	 */
-	final class BBB_GiveWP {
+	final class BBC_GiveWP {
 		/**
-		 * @var BBB_GiveWP The one true BBB_GiveWP
+		 * @var BBC_GiveWP The one true BBC_GiveWP
 		 * @since 0.1.0
 		 */
 		private static $instance;
@@ -57,25 +57,25 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 
 
 		/**
-		 * Main BBB_GiveWP Instance.
+		 * Main BBC_GiveWP Instance.
 		 *
-		 * Insures that only one instance of BBB_GiveWP exists in memory at any one
+		 * Insures that only one instance of BBC_GiveWP exists in memory at any one
 		 * time. Also prevents needing to define globals all over the place.
 		 *
 		 * @since     0.1.0
 		 * @static
 		 * @staticvar array $instance
-		 * @uses      BBB_GiveWP::define_constants() Setup the constants needed.
-		 * @uses      BBB_GiveWP::load_modules() Include the required files.
-		 * @uses      BBB_GiveWP::load_textdomain() load the language files.
-		 * @see       BBB_GiveWP()
-		 * @return object|BBB_GiveWP The one true BBB_GiveWP
+		 * @uses      BBC_GiveWP::define_constants() Setup the constants needed.
+		 * @uses      BBC_GiveWP::load_modules() Include the required files.
+		 * @uses      BBC_GiveWP::load_textdomain() load the language files.
+		 * @see       BBC_GiveWP()
+		 * @return object|BBC_GiveWP The one true BBC_GiveWP
 		 */
 		public function instance() {
 
-			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof BBB_GiveWP ) ) {
+			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof BBC_GiveWP ) ) {
 
-				self::$instance = new BBB_GiveWP;
+				self::$instance = new BBC_GiveWP;
 				self::$errors   = array();
 				self::$bb_lite  = 'beaver-builder-lite-version/fl-builder.php';
 				self::$bb_pro   = 'bb-plugin/fl-builder.php';
@@ -99,7 +99,7 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 		 */
 		public function __clone() {
 			// Cloning instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'bbb-give' ), '0.1.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'bbc-give' ), '0.1.0' );
 		}
 
 		/**
@@ -111,7 +111,7 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 		 */
 		public function __wakeup() {
 			// de-serializing instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'bbb-give' ), '0.1.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'bbc-give' ), '0.1.0' );
 		}
 
 		/**
@@ -124,18 +124,18 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 		private static function define_constants() {
 
 			// Plugin Folder Path.
-			if ( ! defined( 'BBB_GIVE_DIR' ) ) {
-				define( 'BBB_GIVE_DIR', plugin_dir_path( __FILE__ ) );
+			if ( ! defined( 'BBC_GIVE_DIR' ) ) {
+				define( 'BBC_GIVE_DIR', plugin_dir_path( __FILE__ ) );
 			}
 
 			// Plugin Folder URL.
-			if ( ! defined( 'BBB_GIVE_URL' ) ) {
-				define( 'BBB_GIVE_URL', plugin_dir_url( __FILE__ ) );
+			if ( ! defined( 'BBC_GIVE_URL' ) ) {
+				define( 'BBC_GIVE_URL', plugin_dir_url( __FILE__ ) );
 			}
 
 			// Plugin Root File.
-			if ( ! defined( 'BBB_GIVE_FILE' ) ) {
-				define( 'BBB_GIVE_FILE', __FILE__ );
+			if ( ! defined( 'BBC_GIVE_FILE' ) ) {
+				define( 'BBC_GIVE_FILE', __FILE__ );
 			}
 		}
 
@@ -183,8 +183,8 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 		public function load_modules() {
 			// Modules
 			if ( class_exists( 'FLBuilder' ) ) {
-				include_once BBB_GIVE_DIR . 'modules/bbb-give-forms/bbb-give-forms.php';
-				include_once BBB_GIVE_DIR . 'modules/bbb-give-goal/bbb-give-goal.php';
+				include_once BBC_GIVE_DIR . 'modules/bbc-give-forms/bbc-give-forms.php';
+				include_once BBC_GIVE_DIR . 'modules/bbc-give-goal/bbc-give-goal.php';
 			}
 		}
 
@@ -196,7 +196,7 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 		 * @return void
 		 */
 		public function load_textdomain() {
-			load_plugin_textdomain( 'bbb-give', false, basename( dirname( __FILE__ ) ) . '/languages/' );
+			load_plugin_textdomain( 'bbc-give', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 		}
 
 		/**
@@ -213,7 +213,7 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
                     <p>
 						<?php
 						$givewp = '<a href="https://wordpress.org/plugins/give/" target="_blank">Give - WordPress Donation Plugin</a>';
-						echo sprintf( esc_html__( 'Beaver Builder Bridge: Give Donations requires the %1$s. Plugin deactivated.', 'bbb-give' ), $givewp ); ?>
+						echo sprintf( esc_html__( 'Beaver Builder Bridge: Give Donations requires the %1$s. Plugin deactivated.', 'bbc-give' ), $givewp ); ?>
                     </p>
                 </div>
 				<?php
@@ -224,7 +224,7 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
                     <p>
 						<?php
 						$bbb_give = '<a href="https://wordpress.org/plugins/beaver-builder-bridge-give-donations/" target="_blank">Beaver Builder Bridge</a>';
-						echo sprintf( esc_html__( '%s requires only one activated version of Beaver Builder.', 'bbb-give' ), $bbb_give ); ?>
+						echo sprintf( esc_html__( '%s requires only one activated version of Beaver Builder.', 'bbc-give' ), $bbb_give ); ?>
                     </p>
                 </div>
 				<?php
@@ -234,7 +234,7 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
                     <p>
 						<?php
 						$bb_lite = '<a href="https://wordpress.org/plugins/beaver-builder-lite-version/" target="_blank">Beaver Builder</a>';
-						echo sprintf( esc_html__( 'Beaver Builder Bridge: Give Donations requires the %1$s plugin. Plugin deactivated.', 'bbb-give' ), $bb_lite ); ?>
+						echo sprintf( esc_html__( 'Beaver Builder Bridge: Give Donations requires the %1$s plugin. Plugin deactivated.', 'bbc-give' ), $bb_lite ); ?>
                     </p>
                 </div>
 				<?php
@@ -252,20 +252,20 @@ if ( ! class_exists( 'BBB_GiveWP' ) ) :
 endif;
 
 /**
- * The main function that returns BBB_GiveWP
+ * The main function that returns BBC_GiveWP
  *
- * The main function responsible for returning the one true BBB_GiveWP instance to functions everywhere. Use this
+ * The main function responsible for returning the one true BBC_GiveWP instance to functions everywhere. Use this
  * function like you would a global variable, except without needing to declare the global.
  *
- * Example: <?php $give = BBB_Give(); ?>
+ * Example: <?php $give = BBC_Give(); ?>
  *
  * @credit Pippin Williamson - This pattern is pretty much a direct copy of Easy Digital Downloads's main wrapper.
  * @since  0.1.0
- * @return object|BBB_GiveWP one true BBB_GiveWP instance.
+ * @return object|BBC_GiveWP one true BBC_GiveWP instance.
  */
-function BBB_Give() {
-	return BBB_GiveWP::instance();
+function BBC_Give() {
+	return BBC_GiveWP::instance();
 }
 
-// Get BBB_GiveWP Running.
-BBB_Give();
+// Get BBC_GiveWP Running.
+BBC_Give();
