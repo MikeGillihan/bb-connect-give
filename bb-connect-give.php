@@ -3,7 +3,7 @@
  * Plugin Name: BB Connect for Give Donations
  * Plugin URI: https://wordpress.org/plugins/bb-connect-give-donations/
  * Description: Easily integrate Give Donations with Beaver Builder.
- * Version: 0.1.0
+ * Version: 1.0
  * Author: PurposeWP
  * Author URI: https://purposewp.com
  * Copyright: (c) 2017 PurposeWP, LLC
@@ -31,12 +31,12 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
 	/**
 	 * Main BBC_GiveWP Class.
 	 *
-	 * @since 0.1.0
+	 * @since 1.0
 	 */
 	final class BBC_GiveWP {
 		/**
 		 * @var BBC_GiveWP The one true BBC_GiveWP
-		 * @since 0.1.0
+		 * @since 1.0
 		 */
 		private static $instance;
 
@@ -62,7 +62,7 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
 		 * Insures that only one instance of BBC_GiveWP exists in memory at any one
 		 * time. Also prevents needing to define globals all over the place.
 		 *
-		 * @since     0.1.0
+		 * @since     1.0
 		 * @static
 		 * @staticvar array $instance
 		 * @uses      BBC_GiveWP::define_constants() Setup the constants needed.
@@ -93,31 +93,31 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
 		 * The whole idea of the singleton design pattern is that there is a single
 		 * object therefore, we don't want the object to be cloned.
 		 *
-		 * @since  0.1.0
+		 * @since  1.0
 		 * @access protected
 		 * @return void
 		 */
 		public function __clone() {
 			// Cloning instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'bbc-give' ), '0.1.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'bbc-give' ), '1.0' );
 		}
 
 		/**
 		 * Disable de-serializing of the class.
 		 *
-		 * @since  0.1.0
+		 * @since  1.0
 		 * @access protected
 		 * @return void
 		 */
 		public function __wakeup() {
 			// de-serializing instances of the class is forbidden.
-			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'bbc-give' ), '0.1.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'Cheatin&#8217; huh?', 'bbc-give' ), '1.0' );
 		}
 
 		/**
 		 * Initialize the plugin's constants.
 		 *
-		 * @since 0.1.0
+		 * @since 1.0
 		 *
 		 * @return void
 		 */
@@ -177,7 +177,7 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
 		 * Include required files.
 		 *
 		 * @access private
-		 * @since  0.1.0
+		 * @since  1.0
 		 * @return void
 		 */
 		public function load_modules() {
@@ -192,7 +192,7 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
 		 * Loads the plugin language files.
 		 *
 		 * @access public
-		 * @since  0.1.0
+		 * @since  1.0
 		 * @return void
 		 */
 		public function load_textdomain() {
@@ -202,7 +202,7 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
 		/**
 		 * Admin notices.
 		 *
-		 * @since 0.1.0
+		 * @since 1.0
 		 * @return void
 		 */
 		public function admin_notices() {
@@ -260,7 +260,7 @@ endif;
  * Example: <?php $give = BBC_Give(); ?>
  *
  * @credit Pippin Williamson - This pattern is pretty much a direct copy of Easy Digital Downloads's main wrapper.
- * @since  0.1.0
+ * @since  1.0
  * @return object|BBC_GiveWP one true BBC_GiveWP instance.
  */
 function BBC_Give() {

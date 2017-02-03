@@ -3,7 +3,7 @@ Contributors: mikegillihan, purposewp
 Tags: beaver builder, give, donations, nonprofits, fundraising
 Requires at least: 4.4
 Tested up to: 4.7.2
-Stable tag: 0.1.0
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.me/purposewp
@@ -43,5 +43,5 @@ We have made BB Connect for Give Donations as straightforward to use as possible
 
 == Changelog ==
 
-= [0.1.0] - 2017-01-27 =
+= [1.0] - 2017-01-27 =
 * Initial release

@@ -31,6 +31,6 @@ Sure, if we think they will help make the plugin better.
 
 #### Changelog
 
-**[0.1.0] - 2017-01-27**
+**[1.0] - 2017-01-27**
 * Initial release
 
