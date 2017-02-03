@@ -39,7 +39,7 @@ Yes. It works with all versions of Beaver Builder!
 
 BB Connect for Give Donations is pretty straightforward, but if you have a question or problem we will do our best to help out.
 
-* Basic Support: https://wordpress.org/support/plugin/bb-connect-give-donations/
+* Basic Support: https://wordpress.org/support/plugin/bb-connect-for-give-donations/
 
 == Changelog ==
 

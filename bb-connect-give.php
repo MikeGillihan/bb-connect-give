@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: BB Connect for Give Donations
- * Plugin URI: https://wordpress.org/plugins/bb-connect-give-donations/
+ * Plugin URI: https://wordpress.org/plugins/bb-connect-for-give-donations/
  * Description: Easily integrate Give Donations with Beaver Builder.
  * Version: 1.0
  * Author: PurposeWP
