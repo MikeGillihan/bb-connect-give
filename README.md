@@ -21,13 +21,9 @@ Yes. It works with all versions of Beaver Builder!
 
 **Where can I get support?**
 
-We have made BB Connect for Give Donations as straightforward to use as possible, but if you still have questions we will do our best to help out.
+BB Connect for Give Donations is pretty straightforward, but if you have a question or problem we will do our best to help out.
 
 * Here on GitHub or at https://wordpress.org/support/plugin/bb-connect-give-donations/
-
-**Do you accept pull requests?**
-
-Sure, if we think they will help make the plugin better.
 
 #### Changelog
 
