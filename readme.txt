@@ -16,6 +16,10 @@ BB Connect for Give Donations makes it easy to add your Give donation forms to a
 
 Adds Donation Form and Donation Form Goal modules to the Beaver Builder page builder. Configure your donation form using the Give plugin and add it to your Beaver Builder enabled page or post.
 
+Requirements:
+* [Beaver Builder - WordPress Page Builder](https://wordpress.org/plugins/beaver-builder-lite-version/)
+* [Give - WordPress Donation Plugin](https://wordpress.org/plugins/give/)
+
 == Screenshots ==
 
 1. Give Modules
@@ -23,6 +27,10 @@ Adds Donation Form and Donation Form Goal modules to the Beaver Builder page bui
 3. Donation Form Goal Module
 
 == Installation ==
+
+Requirements:
+* [Beaver Builder - WordPress Page Builder](https://wordpress.org/plugins/beaver-builder-lite-version/)
+* [Give - WordPress Donation Plugin](https://wordpress.org/plugins/give/)
 
 * Download and install using the built in WordPress plugin installer.
 * Activate in the "Plugins" area of your admin by clicking the "Activate" link.
