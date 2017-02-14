@@ -92,13 +92,14 @@ FLBuilder::register_module( 'BBC_Give_Forms', array(
 					),
 					'display_style'     => array(
 						'type'    => 'select',
-						'label'   => __( 'Donation Fields', 'bbc-give' ),
+						'label'   => __( 'Display Style', 'bbc-give' ),
 						'default' => '',
 						'options' => array(
 							''       => ' - ',
 							'onpage' => 'Show on page.',
 							'reveal' => 'Reveal on click.',
-							'modal'  => 'Popup on click'
+							'modal'  => 'Popup on click',
+							'button' => 'Button Only',
 						)
 					),
 					'float_labels'      => array(
