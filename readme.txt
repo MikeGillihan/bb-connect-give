@@ -55,3 +55,6 @@ BB Connect for Give Donations is pretty straightforward, but if you have a quest
 
 = [1.0] - 2017-01-27 =
 * Initial release
+
+= [1.0] - 2017-02-14 =
+* Enhancement: Added new Button Only display style
