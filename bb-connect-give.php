@@ -213,17 +213,16 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
                     <p>
 						<?php
 						$givewp = '<a href="https://wordpress.org/plugins/give/" target="_blank">Give - WordPress Donation Plugin</a>';
-						echo sprintf( esc_html__( 'Beaver Builder Bridge: Give Donations requires the %1$s. Plugin deactivated.', 'bbc-give' ), $givewp ); ?>
+						echo sprintf( esc_html__( 'BB Connect for Give Donations requires the %1$s. Plugin deactivated.', 'bbc-give' ), $givewp ); ?>
                     </p>
                 </div>
 				<?php
 			} else if ( is_plugin_active( self::$bb_lite ) && is_plugin_active( self::$bb_pro ) ) {
-				echo 'BEAVER ALERT!';
 				?>
                 <div class="notice notice-error">
                     <p>
 						<?php
-						$bbb_give = '<a href="https://wordpress.org/plugins/beaver-builder-bridge-give-donations/" target="_blank">Beaver Builder Bridge</a>';
+						$bbb_give = '<a href="https://wordpress.org/plugins/bb-connect-for-give-donations/" target="_blank">BB Connect for Give Donations</a>';
 						echo sprintf( esc_html__( '%s requires only one activated version of Beaver Builder.', 'bbc-give' ), $bbb_give ); ?>
                     </p>
                 </div>
@@ -234,7 +233,7 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
                     <p>
 						<?php
 						$bb_lite = '<a href="https://wordpress.org/plugins/beaver-builder-lite-version/" target="_blank">Beaver Builder</a>';
-						echo sprintf( esc_html__( 'Beaver Builder Bridge: Give Donations requires the %1$s plugin. Plugin deactivated.', 'bbc-give' ), $bb_lite ); ?>
+						echo sprintf( esc_html__( 'BB Connect for Give Donations requires the %1$s plugin. Plugin deactivated.', 'bbc-give' ), $bb_lite ); ?>
                     </p>
                 </div>
 				<?php
