@@ -13,26 +13,12 @@
  * Domain Path: /languages
  */
 
-/**
- * WordPress resources for developers
- *
- * Codex:            https://codex.wordpress.org/
- * Plugin Handbook:  https://developer.wordpress.org/plugins/
- * Coding Standards: http://make.wordpress.org/core/handbook/coding-standards/
- * Contribute:       https://make.wordpress.org/
- */
-
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
 if ( ! class_exists( 'BBC_GiveWP' ) ) :
-	/**
-	 * Main BBC_GiveWP Class.
-	 *
-	 * @since 1.0
-	 */
 	final class BBC_GiveWP {
 		/**
 		 * @var BBC_GiveWP The one true BBC_GiveWP
@@ -57,10 +43,7 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
 
 
 		/**
-		 * Main BBC_GiveWP Instance.
-		 *
-		 * Insures that only one instance of BBC_GiveWP exists in memory at any one
-		 * time. Also prevents needing to define globals all over the place.
+		 * Main BBC_GiveWP Instance
 		 *
 		 * @since     1.0
 		 * @static
@@ -89,9 +72,6 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
 
 		/**
 		 * Throw error on object clone.
-		 *
-		 * The whole idea of the singleton design pattern is that there is a single
-		 * object therefore, we don't want the object to be cloned.
 		 *
 		 * @since  1.0
 		 * @access protected
@@ -140,7 +120,7 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
 		}
 
 		/**
-		 * Initiate the plugins functions
+		 * Initiate the plugin
 		 */
 		public function init() {
 			add_action( 'plugins_loaded', array( $this, 'plugins_check' ) );
@@ -180,7 +160,7 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
 		 * @since  1.0
 		 * @return void
 		 */
-		public function load_modules() {
+		private function load_modules() {
 			// Modules
 			if ( class_exists( 'FLBuilder' ) ) {
 				include_once BBC_GIVE_DIR . 'modules/bbc-give-forms/bbc-give-forms.php';
@@ -253,14 +233,8 @@ endif;
 /**
  * The main function that returns BBC_GiveWP
  *
- * The main function responsible for returning the one true BBC_GiveWP instance to functions everywhere. Use this
- * function like you would a global variable, except without needing to declare the global.
- *
- * Example: <?php $give = BBC_Give(); ?>
- *
- * @credit Pippin Williamson - This pattern is pretty much a direct copy of Easy Digital Downloads's main wrapper.
  * @since  1.0
- * @return object|BBC_GiveWP one true BBC_GiveWP instance.
+ * @return object|BBC_GiveWP The main BBC_GiveWP instance.
  */
 function BBC_Give() {
 	return BBC_GiveWP::instance();

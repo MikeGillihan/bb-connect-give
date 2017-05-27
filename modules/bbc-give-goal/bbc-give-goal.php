@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This is the basic Give Donation Form module.
+ * The Give Donation Form Goal module.
  *
  * @class BBC_Give_Goal
  */
@@ -14,13 +14,11 @@ class BBC_Give_Goal extends FLBuilderModule {
 	 */
 	public function __construct() {
 		parent::__construct( array(
-			'name'          => __( 'Donation Form Goal', 'bbc-give' ),
-			'description'   => __( 'Add your Give Donation Form Goal to your page.', 'bbc-give' ),
-			'category'      => __( 'Give Modules', 'bbc-give' ),
-			'dir'           => BBC_GIVE_DIR . 'modules/bbc-give-goal/',
-			'url'           => BBC_GIVE_DIR . 'modules/bbc-give-goal/',
-			'editor_export' => true, // Defaults to true and can be omitted.
-			'enabled'       => true, // Defaults to true and can be omitted.
+			'name'        => __( 'Donation Form Goal', 'bbc-give' ),
+			'description' => __( 'Add your Give Donation Form Goal to your page.', 'bbc-give' ),
+			'category'    => __( 'Give Modules', 'bbc-give' ),
+			'dir'         => BBC_GIVE_DIR . 'modules/bbc-give-goal/',
+			'url'         => BBC_GIVE_DIR . 'modules/bbc-give-goal/',
 		) );
 	}
 
@@ -49,19 +47,19 @@ class BBC_Give_Goal extends FLBuilderModule {
  * Register the module and its form settings.
  */
 FLBuilder::register_module( 'BBC_Give_Goal', array(
-	'form' => array( // Tab
-		'title'    => __( 'General', 'bbc-give' ), // Tab title
-		'sections' => array( // Tab Sections
-			'select_form' => array( // Section
-				'title'  => '', // Section Title
-				'fields' => array( // Section Fields
+	'form' => array(
+		'title'    => __( 'General', 'bbc-give' ),
+		'sections' => array(
+			'select_form' => array(
+				'title'  => '',
+				'fields' => array(
 					'select_form_field' => array(
 						'type'    => 'select',
 						'label'   => __( 'Select Form', 'bbc-give' ),
 						'default' => '',
 						'options' => BBC_Give_Goal::list_forms()
 					),
-					'show_text'        => array(
+					'show_text'         => array(
 						'type'    => 'select',
 						'label'   => __( 'Show Text', 'bbc-give' ),
 						'default' => 'true',
@@ -70,7 +68,7 @@ FLBuilder::register_module( 'BBC_Give_Goal', array(
 							'false' => 'Hide'
 						)
 					),
-					'show_bar'         => array(
+					'show_bar'          => array(
 						'type'    => 'select',
 						'label'   => __( 'Show Progress Bar', 'bbc-give' ),
 						'default' => 'true',

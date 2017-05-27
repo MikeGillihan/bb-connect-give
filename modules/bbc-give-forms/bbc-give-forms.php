@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This is the basic Give Donation Form module.
+ * The Give Donation Form module.
  *
  * @class BBC_Give_Forms
  */
