@@ -14,7 +14,14 @@ Easily add your Give donation form to any Beaver Builder enabled page.
 
 BB Connect for Give Donations makes it easy to add your Give donation forms to any Beaver Builder enabled page.
 
-Adds Donation Form and Donation Form Goal modules to the Beaver Builder page builder. Configure your donation form using the Give plugin and add it to your Beaver Builder enabled page or post.
+Adds several custom Give modules to the Beaver Builder page builder.
+
+Custom Give modules:
+* **Donation Form Module** - Add and configure your Give donation form
+* **Donation Form Goal Module** - Add a Donation Form Goal anywhere in your layout
+* **Account Details Module** - Add a tabbed Account Details module for your donors
+
+Configure your donation form using the Give plugin and add it to your Beaver Builder enabled page or post.
 
 Requirements:
 
