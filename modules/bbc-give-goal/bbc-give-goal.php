@@ -1,9 +1,10 @@
 <?php
 
 /**
- * The Give Donation Form Goal module.
+ * This is the basic Give Donation Form module.
  *
  * @class BBC_Give_Goal
+ * @since 1.0
  */
 class BBC_Give_Goal extends FLBuilderModule {
 
@@ -28,7 +29,7 @@ class BBC_Give_Goal extends FLBuilderModule {
 	 * @return array List of GiveWP forms
 	 */
 	public static function list_forms() {
-		$list = array( '' => __( 'None', 'bbc-give' ) );
+		$list = array( '' => __( 'Select a Form', 'bbc-give' ) );
 
 		$forms = get_posts( array(
 			'post_type'      => 'give_forms',
@@ -47,38 +48,45 @@ class BBC_Give_Goal extends FLBuilderModule {
  * Register the module and its form settings.
  */
 FLBuilder::register_module( 'BBC_Give_Goal', array(
-	'form' => array(
-		'title'    => __( 'General', 'bbc-give' ),
-		'sections' => array(
-			'select_form' => array(
-				'title'  => '',
-				'fields' => array(
+	'form' => array( // Tab
+		'title'    => __( 'General', 'bbc-give' ), // Tab title
+		'sections' => array( // Tab Sections
+			'select_form' => array( // Section
+				'title'  => '', // Section Title
+				'fields' => array( // Section Fields
 					'select_form_field' => array(
 						'type'    => 'select',
 						'label'   => __( 'Select Form', 'bbc-give' ),
 						'default' => '',
 						'options' => BBC_Give_Goal::list_forms()
 					),
+				)
+			),
+			'form_settings' => array( // Section
+				'title'  => '', // Section Title
+				'fields' => array( // Section Fields
 					'show_text'         => array(
-						'type'    => 'select',
-						'label'   => __( 'Show Text', 'bbc-give' ),
-						'default' => 'true',
-						'options' => array(
-							'true'  => 'Show',
-							'false' => 'Hide'
-						)
+						'type'        => 'bbc-toggle',
+						'label'       => __( 'Show Text', 'bbc-give' ),
+						'default'     => 'true',
+						'options'     => array(
+							'true'  => __( 'Show', 'bbc-give' ),
+							'false' => __( 'Hide', 'bbc-give' ),
+						),
+						'help'    => __( 'Displays the goal text. Default is “Show”', 'bbc-give' )
 					),
-					'show_bar'          => array(
-						'type'    => 'select',
-						'label'   => __( 'Show Progress Bar', 'bbc-give' ),
-						'default' => 'true',
-						'options' => array(
-							'true'  => 'Show',
-							'false' => 'Hide'
-						)
+					'show_bar'         => array(
+						'type'        => 'bbc-toggle',
+						'label'       => __( 'Show Progress Bar', 'bbc-give' ),
+						'default'     => 'true',
+						'options'     => array(
+							'true'  => __( 'Show', 'bbc-give' ),
+							'false' => __( 'Hide', 'bbc-give' ),
+						),
+						'help'    => __( 'Shows the progress bar. Default is “Show”', 'bbc-give' )
 					),
 				)
-			)
+			),
 		)
 	)
 ) );
