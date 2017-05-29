@@ -1,0 +1,89 @@
+/*  Labels
+------------------------------------ */
+
+.bbc-tabs-label {
+	cursor: pointer;
+}
+.bbc-tabs-label {
+	padding: 12px 18px;
+}
+.bbc-tabs-label.bbc-tab-active {
+	background: #fff;
+	position: relative;
+	z-index: 1;
+}
+.bbc-tabs-label.bbc-tab-active:focus {
+	outline: 0;
+}
+
+/*  Panel Labels
+------------------------------------ */
+
+.bbc-tabs-panel-label {
+	display: none;
+}
+.bbc-tabs-panel-label span {
+	display: table-cell;
+	width: 100%;
+}
+.bbc-tabs-panel-label .fa {
+	display: table-cell;
+	line-height: inherit;
+	opacity: .5;
+	filter: alpha(opacity = 50);
+	padding-left: 15px;
+	vertical-align: middle;
+}
+
+/*  Panels
+------------------------------------ */
+
+.bbc-tabs-panels {
+	background: #fff;
+	border-width: 1px;
+	border-style: solid;
+}
+.bbc-tabs-panel-content {
+	display: none;
+	padding: 18px;
+}
+.bbc-tabs-panel-content.bbc-tab-active {
+	display: block;
+}
+.bbc-tabs-panel-content p:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+/*  Horizontal
+------------------------------------ */
+
+.bbc-tabs-horizontal .bbc-tabs-label {
+	float: left;
+}
+.bbc-tabs-horizontal .bbc-tabs-label.bbc-tab-active {
+	border-width: 1px;
+	border-style: solid;
+	border-bottom: none !important;
+	padding: 11px 18px 12px;
+	top: 1px;
+}
+
+/*  Vertical
+------------------------------------ */
+
+.bbc-tabs-vertical .bbc-tabs-labels {
+	float: left;
+	width: 30%;
+}
+.bbc-tabs-vertical .bbc-tabs-label.bbc-tab-active {
+	border-width: 1px;
+	border-style: solid;
+	border-right: none !important;
+	left: 1px;
+	padding: 11px 18px 11px 16px;
+}
+.bbc-tabs-vertical .bbc-tabs-panels {
+	float: left;
+	width: 70%;
+}

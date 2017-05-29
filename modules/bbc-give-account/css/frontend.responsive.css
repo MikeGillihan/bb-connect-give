@@ -1,0 +1,58 @@
+/*  Labels
+------------------------------------ */
+
+.bbc-tabs-labels {
+	display: none;
+}
+.bbc-tabs-label.bbc-tab-active {
+	position: static;
+}
+
+/*  Panel Labels
+------------------------------------ */
+
+.bbc-tabs-panel-label {
+	display: table;
+	padding: 10px 15px;
+}
+
+/*  Panels
+------------------------------------ */
+
+.bbc-tabs-panel {
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+.bbc-tabs-panel:last-child {
+	border-bottom: none;
+}
+.bbc-tabs-panel-content {
+	padding: 0 15px 15px 15px;
+}
+
+/*  Horizontal
+------------------------------------ */
+
+.bbc-tabs-horizontal .bbc-tabs-label {
+	float: none;
+}
+.bbc-tabs-horizontal .bbc-tabs-label.bbc-tab-active {
+	border: none;
+	padding: 10px 15px;
+}
+
+/*  Vertical
+------------------------------------ */
+
+.bbc-tabs-vertical .bbc-tabs-labels {
+	float: none;
+	width: auto;
+}
+.bbc-tabs-vertical .bbc-tabs-label.bbc-tab-active {
+	border: none;
+	padding: 10px 15px;
+}
+.bbc-tabs-vertical .bbc-tabs-panels {
+	float: none;
+	width: auto;
+}
