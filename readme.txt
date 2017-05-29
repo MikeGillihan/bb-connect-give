@@ -2,8 +2,8 @@
 Contributors: mikegillihan, purposewp
 Tags: beaver builder, give, donations, nonprofits, fundraising
 Requires at least: 4.4
-Tested up to: 4.7.2
-Stable tag: 1.1
+Tested up to: 4.7.5
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.me/purposewp
@@ -53,8 +53,14 @@ BB Connect for Give Donations is pretty straightforward, but if you have a quest
 
 == Changelog ==
 
-= [1.0] - 2017-01-27 =
-* Initial release
+= [2.0] - 2017-05-28 =
+* New: Give Account Details module
+* Enhancement: Added help tooltips
+* Enhancement: Added Show/Hide toggles
+* Fix: Non-static method called statically
 
 = [1.1] - 2017-02-14 =
 * Enhancement: Added new Button Only display style
+
+= [1.0] - 2017-01-27 =
+* Initial release

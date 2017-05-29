@@ -32,6 +32,14 @@ BB Connect for Give Donations is pretty straightforward, but if you have a quest
 
 #### Changelog
 
+**[2.0] - 2017-05-28**
+* New: Give Account Details module
+* Enhancement: Added help tooltips
+* Enhancement: Added Show/Hide toggles
+* Fix: Non-static method called statically
+
+**[1.1] - 2017-02-14**
+* Enhancement: Added new Button Only display style
+
 **[1.0] - 2017-01-27**
 * Initial release
-
