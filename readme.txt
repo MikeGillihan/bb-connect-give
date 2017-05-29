@@ -23,9 +23,11 @@ Requirements:
 
 == Screenshots ==
 
-1. Give Modules
-2. Donation Form Module
-3. Donation Form Goal Module
+1. Donation Form and Goal modules
+2. Donation Form settings
+3. Donation Form Goal settings
+4. Account Details settings
+5. Account Details module
 
 == Installation ==
 
