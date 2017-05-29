@@ -3,7 +3,7 @@
  * Plugin Name: BB Connect for Give Donations
  * Plugin URI: https://wordpress.org/plugins/bb-connect-for-give-donations/
  * Description: Easily integrate Give Donations with Beaver Builder.
- * Version: 1.1
+ * Version: 2.0
  * Author: PurposeWP
  * Author URI: https://purposewp.com
  * Copyright: (c) 2017 PurposeWP, LLC
@@ -47,14 +47,10 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
 		 *
 		 * @since     1.0
 		 * @static
-		 * @staticvar array $instance
-		 * @uses      BBC_GiveWP::define_constants() Setup the constants needed.
-		 * @uses      BBC_GiveWP::load_modules() Include the required files.
-		 * @uses      BBC_GiveWP::load_textdomain() load the language files.
 		 * @see       BBC_GiveWP()
 		 * @return object|BBC_GiveWP The one true BBC_GiveWP
 		 */
-		public function instance() {
+		public static function instance() {
 
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof BBC_GiveWP ) ) {
 
@@ -125,7 +121,7 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
 		public function init() {
 			add_action( 'plugins_loaded', array( $this, 'plugins_check' ) );
 			add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
-			add_action( 'init', array( $this, 'load_modules' ) );
+			add_action( 'init', array( $this, 'includes' ) );
 		}
 
 		/**
@@ -160,11 +156,15 @@ if ( ! class_exists( 'BBC_GiveWP' ) ) :
 		 * @since  1.0
 		 * @return void
 		 */
-		private function load_modules() {
-			// Modules
+		public function includes() {
 			if ( class_exists( 'FLBuilder' ) ) {
+				// Custom Fields
+				include_once BBC_GIVE_DIR . 'fields/bbc-toggle/bbc-toggle.php';
+
+				// Modules
 				include_once BBC_GIVE_DIR . 'modules/bbc-give-forms/bbc-give-forms.php';
 				include_once BBC_GIVE_DIR . 'modules/bbc-give-goal/bbc-give-goal.php';
+				include_once BBC_GIVE_DIR . 'modules/bbc-give-account/bbc-give-account.php';
 			}
 		}
 
