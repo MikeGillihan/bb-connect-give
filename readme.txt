@@ -18,9 +18,9 @@ Adds several custom Give modules to the Beaver Builder page builder.
 
 Custom Give modules:
 
-* **Donation Form Module** - Add and configure your Give donation form
-* **Donation Form Goal Module** - Add a Donation Form Goal anywhere in your layout
-* **Account Details Module** - Add a tabbed Account Details module for your donors
+* **Donation Form Module** - Add and configure your Give donation form.
+* **Donation Form Goal Module** - Add a Donation Form Goal anywhere in your layout.
+* **Account Details Module** - Add a tabbed Account Details module for your donors.
 
 Configure your donation form using the Give plugin and add it to your Beaver Builder enabled page or post.
 
