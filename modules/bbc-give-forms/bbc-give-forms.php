@@ -1,9 +1,10 @@
 <?php
 
 /**
- * The Give Donation Form module.
+ * This is the basic Give Donation Form module.
  *
  * @class BBC_Give_Forms
+ * @since 1.0
  */
 class BBC_Give_Forms extends FLBuilderModule {
 
@@ -30,7 +31,7 @@ class BBC_Give_Forms extends FLBuilderModule {
 	 * @return array List of GiveWP forms
 	 */
 	public static function list_forms() {
-		$list = array( '' => __( 'None', 'bbc-give' ) );
+		$list = array( '' => __( 'Select a Form', 'bbc-give' ) );
 
 		$forms = get_posts( array(
 			'post_type'      => 'give_forms',
@@ -61,56 +62,66 @@ FLBuilder::register_module( 'BBC_Give_Forms', array(
 						'default' => '',
 						'options' => BBC_Give_Forms::list_forms()
 					),
+				)
+			),
+			'form_settings' => array( // Section
+				'title'  => '', // Section Title
+				'fields' => array( // Section Fields
 					'show_title'        => array(
-						'type'    => 'select',
-						'label'   => __( 'Show Title', 'bbc-give' ),
-						'default' => 'true',
-						'options' => array(
-							'true'  => 'Show',
-							'false' => 'Hide'
-						)
+						'type'        => 'bbc-toggle',
+						'label'       => __( 'Show Title', 'bbc-give' ),
+						'default'     => 'true',
+						'options'     => array(
+							'true'  => __( 'Show', 'bbc-give' ),
+							'false' => __( 'Hide', 'bbc-give' ),
+						),
+						'help'    => __( 'Show/hide the form title. Default is “show”', 'bbc-give' )
 					),
 					'show_goal'         => array(
-						'type'    => 'select',
-						'label'   => __( 'Show Goal', 'bbc-give' ),
-						'default' => 'true',
-						'options' => array(
-							'true'  => 'Show',
-							'false' => 'Hide'
-						)
+						'type'        => 'bbc-toggle',
+						'label'       => __( 'Show Goal', 'bbc-give' ),
+						'default'     => 'false',
+						'options'     => array(
+							'true'  => __( 'Show', 'bbc-give' ),
+							'false' => __( 'Hide', 'bbc-give' ),
+						),
+						'help'    => __( 'Show/hide the form goal. Default is “hide”', 'bbc-give' )
 					),
 					'show_content'      => array(
 						'type'    => 'select',
 						'label'   => __( 'Show Content', 'bbc-give' ),
-						'default' => '',
+						'default' => 'default',
 						'options' => array(
-							''      => ' - ',
-							'none'  => 'No Content',
-							'above' => 'Display content ABOVE the fields.',
-							'below' => 'Display content BELOW the fields.'
-						)
+							'default' => 'Use default setting',
+							'none'    => 'No Content',
+							'above'   => 'Display content ABOVE the fields.',
+							'below'   => 'Display content BELOW the fields.'
+						),
+						'help'    => __( 'Show/hide the form content. You can choose from None, Below, or Above. This will override the default settings of the form. The Default value is whatever you chose when you created the form.', 'bbc-give' )
 					),
 					'display_style'     => array(
 						'type'    => 'select',
 						'label'   => __( 'Display Style', 'bbc-give' ),
-						'default' => '',
+						'default' => 'default',
 						'options' => array(
-							''       => ' - ',
-							'onpage' => 'Show on page.',
-							'reveal' => 'Reveal on click.',
-							'modal'  => 'Popup on click',
-							'button' => 'Button Only',
-						)
+							'default' => 'Use default setting',
+							'onpage'  => 'Show on page.',
+							'reveal'  => 'Reveal on click.',
+							'modal'   => 'Popup on click',
+							'button'  => 'Button Only',
+						),
+						'help'    => __( 'Override the setting you set when you created the form. You can choose from “Show on Page”, “Reveal on Click”, or “Modal Window on Click”, or “Button only”.', 'bbc-give' )
 					),
 					'float_labels'      => array(
 						'type'    => 'select',
 						'label'   => __( 'Floating Labels', 'bbc-give' ),
-						'default' => '',
+						'default' => 'default',
 						'options' => array(
-							''         => ' - ',
+							'default'  => 'Use default setting',
 							'enabled'  => 'Enabled',
 							'disabled' => 'Disabled',
-						)
+						),
+						'help'    => __( 'Enable/disable Floating labels. The default is whatever you chose when you created the form. This setting overrides that default.', 'bbc-give' )
 					),
 				)
 			)
