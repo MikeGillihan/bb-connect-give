@@ -47,6 +47,7 @@ if ( ! class_exists( 'BBC_Toggle' ) ) {
 
 			$output .= '.bbc-toggle .' . $name . ':checked + .' . $name . '{';
 			$output .= 'background: #1e8cbe;';
+			$output .= 'background: #2ea2cc;';
 			$output .= 'border-color: #0074a2;';
 			$output .= 'color: #fff;';
 			$output .= '}';

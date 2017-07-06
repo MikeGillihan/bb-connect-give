@@ -5,12 +5,20 @@ $static_tabs = array(
 	'profile' => array(
 		'id'      => 'profile',
 		'label'   => 'Donor Profile',
-		'enabled' => 'true' == $settings->profile
+		'enabled' => 'true' == $settings->profile,
+		'shortcode' => '[give_profile_editor]'
 	),
 	'history' => array(
 		'id'      => 'history',
 		'label'   => 'Donation History',
-		'enabled' => 'true' == $settings->history
+		'enabled' => 'true' == $settings->history,
+		'shortcode' => '[donation_history]'
+	),
+	'subscriptions' => array(
+		'id'      => 'subscriptions',
+		'label'   => 'Subscriptions',
+		'enabled' => 'true' == $settings->subscriptions,
+		'shortcode' => '[give_subscriptions]'
 	),
 );
 ?>
@@ -78,7 +86,7 @@ $static_tabs = array(
                          aria-labelledby="<?php echo 'bbc-tabs-' . $module->node . '-label-' . $offset_counter; ?>"
                          role="tabpanel"
                          aria-live="polite">
-						<?php echo do_shortcode( 'profile' == $tab ? '[give_profile_editor]' : '[donation_history]' ); ?>
+						<?php echo do_shortcode( $tab_settings['shortcode'] ); ?>
                     </div>
                 </div>
 

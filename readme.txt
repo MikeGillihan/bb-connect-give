@@ -3,7 +3,7 @@ Contributors: mikegillihan, purposewp
 Tags: beaver builder, give, donations, nonprofits, fundraising
 Requires at least: 4.4
 Tested up to: 4.7.5
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.me/purposewp
@@ -20,7 +20,7 @@ Custom Give modules:
 
 * **Donation Form Module** - Add and configure your Give donation form.
 * **Donation Form Goal Module** - Add a Donation Form Goal anywhere in your layout.
-* **Account Details Module** - Add a tabbed Account Details module for your donors.
+* **Account Details Module** - Give your donors the ability to update their profile and view their donation history. Includes support for Give subscriptions and you can even add your own custom content tabs.
 
 Configure your donation form using the Give plugin and add it to your Beaver Builder enabled page or post.
 
@@ -62,6 +62,10 @@ BB Connect for Give Donations is pretty straightforward, but if you have a quest
 * Basic Support: https://wordpress.org/support/plugin/bb-connect-for-give-donations/
 
 == Changelog ==
+
+= [2.1] - 2017-05-30 =
+* Enhancement: The Account Details module now supports Give subscriptions
+* Enhancement: UI Tweaks
 
 = [2.0] - 2017-05-28 =
 * New: Give Account Details module
