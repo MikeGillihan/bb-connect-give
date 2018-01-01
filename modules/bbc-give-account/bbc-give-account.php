@@ -3,7 +3,7 @@
 /**
  * @class  BBC_Give_Account
  * @since  2.0
- * @credit The Beaver Builder (https://beaverbuilder.com) team for the Tabs module which is what we based  this upon and the team at UABB (https://www.ultimatebeaver.com) for their clever implementation of toggle fields.
+ * @credit The Beaver Builder (https://beaverbuilder.com) team for the Tabs module which is what we based this upon and the team at UABB (https://www.ultimatebeaver.com) for their clever implementation of toggle fields.
  */
 class BBC_Give_Account extends FLBuilderModule {
 
@@ -17,8 +17,6 @@ class BBC_Give_Account extends FLBuilderModule {
 			'category'        => __( 'Give Modules', 'bbc-give' ),
 			'partial_refresh' => true
 		) );
-
-		$this->add_css( 'font-awesome' );
 	}
 
 	/**
@@ -27,8 +25,10 @@ class BBC_Give_Account extends FLBuilderModule {
 	 * @return array
 	 */
 	public static function bbc_do_subscriptions() {
-		if ( !class_exists( 'Give_Recurring' ) ) {
-			return;
+		$settings = array();
+
+		if ( ! class_exists( 'Give_Recurring' ) ) {
+			return $settings;
 		}
 
 		$settings = array(
@@ -40,7 +40,7 @@ class BBC_Give_Account extends FLBuilderModule {
 				'true'  => __( 'Show', 'bbc-give' ),
 				'false' => __( 'Hide', 'bbc-give' ),
 			),
-			'help'    => __( 'Displays the Subscriptions tab. Default is “Hide”', 'bbc-give' )
+			'help'        => __( 'Displays the Subscriptions tab. Default is “Hide”', 'bbc-give' )
 		);
 
 		return $settings;
@@ -78,7 +78,7 @@ FLBuilder::register_module( 'BBC_Give_Account', array(
 							'true'  => __( 'Show', 'bbc-give' ),
 							'false' => __( 'Hide', 'bbc-give' ),
 						),
-						'help'    => __( 'Displays the Profile Editor tab. Default is “Show”', 'bbc-give' )
+						'help'        => __( 'Displays the Profile Editor tab. Default is “Show”', 'bbc-give' )
 					),
 					'history'       => array(
 						'type'        => 'bbc-toggle',
@@ -89,7 +89,7 @@ FLBuilder::register_module( 'BBC_Give_Account', array(
 							'true'  => __( 'Show', 'bbc-give' ),
 							'false' => __( 'Hide', 'bbc-give' ),
 						),
-						'help'    => __( 'Displays the Donation History tab. Default is “Show”', 'bbc-give' )
+						'help'        => __( 'Displays the Donation History tab. Default is “Show”', 'bbc-give' )
 					),
 					'subscriptions' => BBC_Give_Account::bbc_do_subscriptions(),
 				)
